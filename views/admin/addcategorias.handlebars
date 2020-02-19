@@ -1,0 +1,18 @@
+{{#each erros}} <!-- para cada erro que foi recebido da validação de formulário do arquvio admin.js ele printa o valor de texto referente a tal-->
+    <div class="alert alert-danger">{{texto}}</div> <!-- Faz o erro aparecer em uma caixinha vermelha -->
+{{else}}
+
+{{/each}}
+<h3>Nova Categoria: </h3>
+<div class="card">
+    <div class="card-body">
+        <form action="/admin/categorias/nova" method="POST">
+            <label for="nome">Nome: </label>
+                <input type="text" name="nome" id="nome" placeholder="Nome da Categoria" class="form-control">
+            <label for="slug">Slug: </label>
+                <input type="text" id="slug" name="slug" placeholder="Slug da Categoria" class="form-control">
+                <br>
+            <button type="submit" class="btn btn-success">Criar Categoria</button>
+        </form>
+    </div>
+</div>
