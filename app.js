@@ -49,7 +49,7 @@
 
     // -- Mogoose -- //
         mongoose.Promise = global.Promise;
-        mongoose.connect("mongodb://localhost:27017/blogapp", {useNewUrlParser:true}).then(() => {
+        mongoose.connect("mongodb://localhost:27017/blogapp", {useNewUrlParser:true, useUnifiedTopology: true,}).then(() => {
             console.log("Conectado ao mongo")
         }).catch((err) => {
             console.log("Erro ao se conectar: " + erro)
@@ -62,7 +62,7 @@
 
             app.use((req, res, next) => { //criando um middleware (intermediador)
                 console.log("Oi, eu sou um middleware!")
-                next(); //importante colocar um next pois se não a requisição feita vai parar no middleware e entrar em loop
+                next(); //importante colocar um next,as senão a requisição feita vai parar no middleware e entrar em loop
             })
     // --------- //
 
@@ -122,9 +122,9 @@
         })
     })
 
-    app.get("/mapa", (req, res) => {
-        res.render("mapa/TomCat/apache-tomcat-9.0.17/work/Catalina/localhost/projeto/index")
-    })
+    // app.get("/mapa", (req, res) => {
+    //     res.render("mapa/TomCat/apache-tomcat-9.0.17/work/Catalina/localhost/projeto/index")
+    // })
 
     app.get("/404", (req, res) => {
         res.send('Erro 404!')
@@ -136,8 +136,8 @@
 
 
 // ----- Outros ----- //
-    const PORT = 8088
+    const PORT = 8013
     app.listen(PORT, () =>{
-        console.log("Servidor rodando na porta 8088! ")
+        console.log("Servidor rodando na porta 8013! ")
     })
 // -------------------- //
