@@ -13,6 +13,8 @@ router.get('/', (req,res) => {
     res.render("admin/index")
 })
 
+
+//As categorias são listadas aqui
 router.get("/categorias", (req,res) => {
     Categoria.find({}).sort({date:'desc'}).then((categorias) => { //Pegando o model categoria e usando o metodo find que tem como função listar todas as categorias que existem, a função sort ordena pela data
         res.render("admin/categorias", {categorias: categorias}) // passando as categorias para a página
