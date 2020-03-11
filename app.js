@@ -52,7 +52,7 @@
         mongoose.connect("mongodb://localhost:27017/blogapp", {useNewUrlParser:true, useUnifiedTopology: true,}).then(() => {
             console.log("Conectado ao mongo")
         }).catch((err) => {
-            console.log("Erro ao se conectar: " + erro)
+            console.log("Erro ao se conectar: " + err)
         })
     // --------- //
 
@@ -61,7 +61,7 @@
             app.use(express.static(path.join(__dirname,"public")))
 
             app.use((req, res, next) => { //criando um middleware (intermediador)
-                console.log("Oi, eu sou um middleware!")
+                console.log("Oi, eu sou um middleware!") //cada vez que o usuário faz uma requisição o middleware é chamado
                 next(); //importante colocar um next,as senão a requisição feita vai parar no middleware e entrar em loop
             })
     // --------- //
